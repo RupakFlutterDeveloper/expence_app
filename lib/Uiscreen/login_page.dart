@@ -74,8 +74,7 @@ class _LoginscreenState extends State<Loginscreen> {
                                       width: 1.5)),
                               enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                      color: ButtonColor.primaryColor,
-                                      width: 1.5),
+                                      color: Colors.black54, width: 1.5),
                                   borderRadius: BorderRadius.circular(10))),
                           controller: emailController,
                         ),
@@ -99,8 +98,7 @@ class _LoginscreenState extends State<Loginscreen> {
                                       width: 1.5)),
                               enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                      color: ButtonColor.primaryColor,
-                                      width: 1.5),
+                                      color: Colors.black54, width: 1.5),
                                   borderRadius: BorderRadius.circular(10))),
                           controller: passwordController,
                         ),
