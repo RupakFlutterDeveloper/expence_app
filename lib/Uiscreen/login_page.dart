@@ -1,9 +1,21 @@
+import 'package:expence_app/Uiscreen/dashBoard_page.dart';
+import 'package:expence_app/Uiscreen/signUp_page.dart';
 import 'package:expence_app/color_constant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-class Loginscreen extends StatelessWidget {
+class Loginscreen extends StatefulWidget {
+  @override
+  State<Loginscreen> createState() => _LoginscreenState();
+}
+
+class _LoginscreenState extends State<Loginscreen> {
   TextEditingController emailController = TextEditingController();
+
   TextEditingController passwordController = TextEditingController();
+
+  String errorMessage = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,7 +109,27 @@ class Loginscreen extends StatelessWidget {
                         ),
 
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            if (emailController.text.isEmpty ||
+                                passwordController.text.isEmpty) {
+                              setState(() {
+                                errorMessage =
+                                    "Please Enter valid Email or Password";
+                              });
+
+                              // Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //       builder: (context) => Loginscreen(),
+                              //     ));
+                            } else {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DashboardPage(),
+                                  ));
+                            }
+                          },
                           child: Container(
                             width: 270,
                             height: 35,
@@ -115,14 +147,28 @@ class Loginscreen extends StatelessWidget {
                         SizedBox(
                           height: 12,
                         ),
+                        //error message
+                        Text(
+                          textAlign: TextAlign.center,
+                          errorMessage,
+                          style: TextStyle(color: Colors.red, fontSize: 15),
+                        ),
                         //dont have an account
-
+                        SizedBox(
+                          height: 12,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text("You Don't Have an Account "),
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => SignupPage(),
+                                    ));
+                              },
                               child: Text(
                                 " Sign-Up",
                                 style:

@@ -1,4 +1,4 @@
-import 'package:expence_app/Uiscreen/loginscreen.dart';
+import 'package:expence_app/Uiscreen/login_page.dart';
 import 'package:flutter/material.dart';
 
 class Splashscreen extends StatelessWidget {
